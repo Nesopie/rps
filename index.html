@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            function computerSelection() {
+                let choices = ["rock","paper","scissors"];
+                return choices[Math.floor(Math.random() * 2.99)];
+            }
+
+            function playRound(playerSelection, computerSelection) {
+                if((playerSelection != "rock" && playerSelection != "paper" && playerSelection != "scissors")) {
+                    alert("Please enter a valid choice");
+                    return -1;
+                }
+                if(playerSelection === computerSelection) {
+                    alert("Tie");
+                    return -1;
+                }else {
+                    if(playerSelection === "rock") {
+                        if(computerSelection === "scissors") {
+                            alert("You win against " + computerSelection);
+                            return 1;
+                        }else {
+                            alert("You lose against " + computerSelection);
+                            return 0;
+                        }
+                    }else if(playerSelection === "scissors") {
+                        if(computerSelection === "rock") {
+                            alert("You lose against " + computerSelection);
+                            return 0;
+                        }else {
+                            alert("You win against " + computerSelection);
+                            return 1;
+                        }
+                    }else {
+                        if(computerSelection === "scissors") {
+                            alert("You lose against " + computerSelection);
+                            return 0;
+                        }else {
+                            alert("You win against " + computerSelection);
+                            return 1;
+                        }
+                    }
+                }
+            }
+
+            function playerSelection() {
+                let choice = prompt("Enter your choice~");
+                if(choice === null) return "";
+                return choice.toLowerCase();
+            }
+
+            function game() {
+                let playerCounter = 0;
+                let computerCounter = 0;
+                for(let i = 0; i < 5; i++) {
+                    const playerSelect = playerSelection();
+                    const computerSelect = computerSelection();
+                    let counter = playRound(playerSelect,computerSelect);
+                    if (counter === -1) continue;
+                    playerCounter += counter;
+                    computerCounter += (1 - counter);
+                }
+                if(playerCounter < computerCounter) {
+                    alert("You lose against the computer in the best of 5 rounds");
+                }else if (playerCounter > computerCounter) {
+                    alert("You win against the computer in the best of 5 rounds");
+                }else {
+                    alert("You tie against the computer in the best of 5 rounds");
+                }
+            }
+            game();
+        </script>
+    </body>
+</html>
