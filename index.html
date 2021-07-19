@@ -2,78 +2,56 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title></title>
+        <link rel="stylesheet" href="style.css">
+        <script type="text/javascript" src="app.js" defer></script>
+        <title>Rock Paper Scissors</title>
     </head>
     <body>
-        <script type="text/javascript">
-            function computerSelection() {
-                let choices = ["rock","paper","scissors"];
-                return choices[Math.floor(Math.random() * 2.99)];
-            }
-
-            function playRound(playerSelection, computerSelection) {
-                if((playerSelection != "rock" && playerSelection != "paper" && playerSelection != "scissors")) {
-                    alert("Please enter a valid choice");
-                    return -1;
-                }
-                if(playerSelection === computerSelection) {
-                    alert("Tie");
-                    return -1;
-                }else {
-                    if(playerSelection === "rock") {
-                        if(computerSelection === "scissors") {
-                            alert("You win against " + computerSelection);
-                            return 1;
-                        }else {
-                            alert("You lose against " + computerSelection);
-                            return 0;
-                        }
-                    }else if(playerSelection === "scissors") {
-                        if(computerSelection === "rock") {
-                            alert("You lose against " + computerSelection);
-                            return 0;
-                        }else {
-                            alert("You win against " + computerSelection);
-                            return 1;
-                        }
-                    }else {
-                        if(computerSelection === "scissors") {
-                            alert("You lose against " + computerSelection);
-                            return 0;
-                        }else {
-                            alert("You win against " + computerSelection);
-                            return 1;
-                        }
-                    }
-                }
-            }
-
-            function playerSelection() {
-                let choice = prompt("Enter your choice~");
-                if(choice === null) return "";
-                return choice.toLowerCase();
-            }
-
-            function game() {
-                let playerCounter = 0;
-                let computerCounter = 0;
-                for(let i = 0; i < 5; i++) {
-                    const playerSelect = playerSelection();
-                    const computerSelect = computerSelection();
-                    let counter = playRound(playerSelect,computerSelect);
-                    if (counter === -1) continue;
-                    playerCounter += counter;
-                    computerCounter += (1 - counter);
-                }
-                if(playerCounter < computerCounter) {
-                    alert("You lose against the computer in the best of 5 rounds");
-                }else if (playerCounter > computerCounter) {
-                    alert("You win against the computer in the best of 5 rounds");
-                }else {
-                    alert("You tie against the computer in the best of 5 rounds");
-                }
-            }
-            game();
-        </script>
+        <header>Rock Paper Scissors</header>
+        <hr>
+        <div class="score">
+            Score:
+        </div>
+        <div class="score-counter">
+            <div class="player-counter">
+                Player count: 0
+            </div>
+            <div class="computer-counter">
+                Computer count: 0
+            </div>
+        </div>
+        <div class="score-images">
+            <div class="player-image">
+                <img src="" alt="" style="z-index: 10;">
+            </div>
+            <div class="computer-image">
+                <img src="" alt="">
+            </div>
+        </div>
+        <div class="choices">
+            <div class="display-text">
+                Make your choice
+            </div>
+            <div class="buttons">
+                <button id="Rock" type="button" name="button">
+                    <img src="images/rock.svg" alt="Rock">
+                    <div>
+                        Rock
+                    </div>
+                </button>
+                <button id="Paper"type="button" name="button">
+                    <img src="images/Paper.svg" alt="Scissors">
+                    <div>
+                        Paper
+                    </div>
+                </button>
+                <button id="Scissors"type="button" name="button">
+                    <img src="images/Scissors.svg" alt="Scissors">
+                    <div>
+                        Scissors
+                    </div>
+                </button>
+            </div>
+        </div>
     </body>
 </html>
