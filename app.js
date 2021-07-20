@@ -34,8 +34,6 @@ let computerCount = 0;
 
 const buttons = document.querySelectorAll("button");
 
-console.log(buttons);
-
 buttons.forEach(button => {
     button.addEventListener("click" ,() => {
 
