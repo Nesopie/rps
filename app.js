@@ -21,7 +21,7 @@ function playRound(playerSelect, computerSelect) {
             return 0;
         }
     }else {
-        if(computerSelect === "Paper") {
+        if(computerSelect === "Rock") {
             return 1;
         }else {
             return 0;
