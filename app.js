@@ -29,13 +29,6 @@ function playRound(playerSelect, computerSelect) {
     }
 }
 
-function game(playerChoice) {
-    let playerCount = 0;
-    let computerCount = 0;
-    while(playerCount < 5 && computerCount < 5) {
-        let playerSelect = playerSelection();
-    }
-}
 let playerCount = 0;
 let computerCount = 0;
 
